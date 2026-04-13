@@ -1,0 +1,39 @@
+Sub AddMinutesToDateTime()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim i As Long
+    Dim DateTimeColumn As Long
+    Dim MinutesColumn As Long
+    Dim ResultColumn As Long
+    Dim HeaderRow As Long
+    
+    Set ws = ActiveSheet
+    HeaderRow = 1
+    
+    On Error Resume Next
+    DateTimeColumn = Application.InputBox("9", "Столбец с датой", Type:=1)
+    MinutesColumn = Application.InputBox("8", "Столбец с минутами", Type:=1)
+    ResultColumn = Application.InputBox("10", "Столбец для результата", Type:=1)
+    On Error GoTo 0
+    
+    If DateTimeColumn = 0 Or MinutesColumn = 0 Or ResultColumn = 0 Then
+        MsgBox "Операция отменена.", vbInformation
+        Exit Sub
+    End If
+    
+    Application.ScreenUpdating = False
+    
+    LastRow = ws.Cells(ws.Rows.Count, DateTimeColumn).End(xlUp).Row
+    
+    For i = HeaderRow + 1 To LastRow
+        If IsDate(ws.Cells(i, DateTimeColumn).Value) And IsNumeric(ws.Cells(i, MinutesColumn).Value) Then
+            ws.Cells(i, ResultColumn).Value = ws.Cells(i, DateTimeColumn).Value + (ws.Cells(i, MinutesColumn).Value / 1440)
+            ws.Cells(i, ResultColumn).NumberFormat = "dd.mm.yyyy hh:mm:ss"
+        Else
+            ws.Cells(i, ResultColumn).Value = "Ошибка"
+        End If
+    Next i
+    
+    Application.ScreenUpdating = True
+    
+End Sub

@@ -1,0 +1,80 @@
+Sub ColorUserIDsFromList()
+    Dim sourceSheet As Worksheet
+    Dim targetSheet As Worksheet
+    Dim sourceRange As Range
+    Dim targetRange As Range
+    Dim sourceCell As Range
+    Dim targetCell As Range
+    Dim dict As Object
+    Dim i As Long
+    Dim lastRow As Long
+    Dim colNum As Long
+    Dim hexColor As String
+    Dim r As Long, g As Long, b As Long
+    Dim targetSheetsArray As Variant
+    Dim sheetName As Variant
+    
+    Set sourceSheet = ThisWorkbook.Worksheets("students_of_interest")
+    Set sourceRange = sourceSheet.Range("B2:B" & sourceSheet.Cells(sourceSheet.Rows.Count, 1).End(xlUp).Row)
+    
+    targetSheetsArray = Array("wk_users_courses_actions", "user_watched_depth", "user_trainings", "user_schoolclass_histories", "user_lessons", "user_courses", "user_award_badges", "user_answers", "media_view_sessions", "courses_stats")
+    
+    Dim colorPalette As Variant
+    colorPalette = Array("#C1DFFF", "#DAE9F8", "#C1F0C8", "#DAF2D0", "#F1FBC7", "#FEE49A", "#FFC17D", "#FFAEA3", "#E9C5FF", "#C6B9FF")
+    
+    Set dict = CreateObject("Scripting.Dictionary")
+    i = 0
+    For Each sourceCell In sourceRange
+        If Not IsEmpty(sourceCell.Value) Then
+            If Not dict.exists(sourceCell.Value) Then
+                If i < 10 Then
+                    dict.Add sourceCell.Value, colorPalette(i)
+                Else
+                    dict.Add sourceCell.Value, colorPalette(i Mod 10)
+                End If
+                i = i + 1
+            End If
+        End If
+    Next sourceCell
+    
+    Application.ScreenUpdating = False
+    
+    For Each sheetName In targetSheetsArray
+        On Error Resume Next
+        Set targetSheet = ThisWorkbook.Worksheets(sheetName)
+        On Error GoTo 0
+        
+        If Not targetSheet Is Nothing Then
+            colNum = 0
+            For i = 1 To targetSheet.UsedRange.Columns.Count
+                If LCase(targetSheet.Cells(1, i).Value) = "user_id" Then
+                    colNum = i
+                    Exit For
+                End If
+            Next i
+            
+            If colNum > 0 Then
+                lastRow = targetSheet.Cells(targetSheet.Rows.Count, colNum).End(xlUp).Row
+                If lastRow >= 2 Then
+                    Set targetRange = targetSheet.Range(targetSheet.Cells(2, colNum), targetSheet.Cells(lastRow, colNum))
+                    
+                    For Each targetCell In targetRange
+                        If dict.exists(targetCell.Value) Then
+                            hexColor = dict(targetCell.Value)
+                            r = Application.Hex2Dec(Mid(hexColor, 2, 2))
+                            g = Application.Hex2Dec(Mid(hexColor, 4, 2))
+                            b = Application.Hex2Dec(Mid(hexColor, 6, 2))
+                            targetCell.Interior.Color = RGB(r, g, b)
+                        End If
+                    Next targetCell
+                End If
+            End If
+        End If
+        Set targetSheet = Nothing
+    Next sheetName
+    
+    Application.ScreenUpdating = True
+    
+    MsgBox "done"
+
+End Sub
