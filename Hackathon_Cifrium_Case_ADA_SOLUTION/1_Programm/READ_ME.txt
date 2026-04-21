@@ -1,3 +1,9 @@
+ЗАПУСК ПРОГРАММЫ
+1) Скачайте файлы из папки Data_Base
+2) В блоке "Конфигурация" 
+  Укажите путь к папке Data_Base в строке (----)
+  DATA_PATH = 'C:/Base/Hackathon/Hackathon Cifrium. Case ADA/NewData'
+
 ИМПОРТ БИБЛИОТЕК
 
 import pandas as pd
