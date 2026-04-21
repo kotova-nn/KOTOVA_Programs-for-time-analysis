@@ -1,0 +1,19 @@
+﻿Column1,user_id,training_id,solved_tasks_count,earned_points,type,state,submitted_answers_count,started_at,finished_at,Разница,attempts,mark,mark_saved_at
+0,665767,2355,7,0.0,UserTrainings::RegularTraining,checked,7,10/31/2025 13:02,10/31/2025 13:07,00.00.0000 00:05,1,2,10/31/2025 13:07
+1,665767,2357,5,4.8,UserTrainings::LessonTraining,checked,5,2/1/2026 6:58,2/1/2026 7:06,00.00.0000 00:07,1,5,2/1/2026 7:06
+2,665788,2355,7,0.0,UserTrainings::RegularTraining,checked,7,10/27/2025 9:16,10/27/2025 9:20,00.00.0000 00:04,1,2,10/27/2025 9:20
+3,667623,2355,7,0.0,UserTrainings::RegularTraining,checked,7,10/21/2025 18:46,10/21/2025 18:55,00.00.0000 00:08,1,2,10/21/2025 18:55
+4,667623,2357,5,5.0,UserTrainings::LessonTraining,checked,5,2/26/2026 15:20,2/26/2026 15:34,00.00.0000 00:13,1,5,2/26/2026 15:34
+5,669160,2355,7,0.0,UserTrainings::RegularTraining,checked,7,11/9/2025 19:00,11/9/2025 19:06,00.00.0000 00:05,1,2,11/9/2025 19:06
+6,669160,2357,5,5.0,UserTrainings::LessonTraining,checked,5,3/5/2026 16:22,3/5/2026 16:33,00.00.0000 00:10,1,5,3/5/2026 16:33
+7,669160,2359,5,5.0,UserTrainings::LessonTraining,checked,5,3/5/2026 16:59,3/5/2026 17:06,00.00.0000 00:06,1,5,3/5/2026 17:06
+8,670642,2355,7,0.0,UserTrainings::RegularTraining,checked,7,11/18/2025 16:59,11/18/2025 17:04,00.00.0000 00:04,1,2,11/18/2025 17:04
+9,671753,2355,7,0.0,UserTrainings::RegularTraining,checked,7,11/25/2025 15:01,11/25/2025 15:07,00.00.0000 00:05,1,2,11/25/2025 15:07
+10,671753,2362,5,5.0,UserTrainings::LessonTraining,checked,5,2/10/2026 12:58,2/10/2026 13:04,00.00.0000 00:06,1,5,2/10/2026 13:04
+11,671753,2357,5,3.8,UserTrainings::LessonTraining,checked,5,2/17/2026 14:40,2/17/2026 14:46,00.00.0000 00:06,1,4,2/17/2026 14:46
+12,671753,2359,5,5.0,UserTrainings::LessonTraining,checked,5,2/17/2026 14:47,2/17/2026 14:49,00.00.0000 00:02,1,5,2/17/2026 14:49
+13,672661,2355,7,0.0,UserTrainings::RegularTraining,checked,7,12/4/2025 15:17,12/4/2025 15:21,00.00.0000 00:04,1,2,12/4/2025 15:21
+14,672661,2359,5,4.0,UserTrainings::LessonTraining,checked,5,1/31/2026 9:36,1/31/2026 9:41,00.00.0000 00:04,1,4,1/31/2026 9:41
+15,672661,2362,5,5.0,UserTrainings::LessonTraining,checked,5,2/19/2026 14:46,2/19/2026 14:48,00.00.0000 00:02,1,5,2/19/2026 14:48
+16,672661,2357,5,4.0,UserTrainings::LessonTraining,checked,5,2/22/2026 9:28,2/22/2026 9:35,00.00.0000 00:06,1,4,2/22/2026 9:35
+17,674171,2357,5,3.2,UserTrainings::LessonTraining,checked,5,2/13/2026 5:37,2/13/2026 5:38,00.00.0000 00:01,3,3,2/13/2026 5:38
